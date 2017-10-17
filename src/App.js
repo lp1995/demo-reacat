@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-
-import {Home,About,BasicExample }from './router/ReactRouter'
+import BasicRouters from './router/ReactRouter'
 
 class App extends Component {
   render() {
     return (
-        <BasicExample />
+        <BasicRouters />
     );
   }
 }
@@ -30,5 +28,4 @@ class App extends Component {
 //     );
 //   }
 // }
-
 export default App;

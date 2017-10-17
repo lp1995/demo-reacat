@@ -4,24 +4,14 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-
+import { Switch } from 'react-router'
+import NoMatch from '../components/NoMatch'
 
 const Home = () => (
   <div>
     <h2>Home</h2>
   </div>
 )
-
-class Contact extends Component {
-  render(){
-    return(
-      <button className='btn btn-primary' >Contact</button>
-    );
-  }
-}
-
-const contact = new Contact();
-
 
 const About = () => (
   <div>
@@ -64,21 +54,26 @@ const Topics = ({ match }) => (
 )
 
 
-const BasicExample = () => (
-  <Router>
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-      </ul>
-      <hr/>
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-      <Route path="/contact" component={Contact}/>
-      <Route path="/topics" component={Topics}/>
+export default class BasicRouters extends Component{
+  render(){
+    return(
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
+          <hr/>
+          <Switch>
+          <Route exact  path="/" component={Home}/>
+          <Route exact path="/home" component={Home}/>
+          <Route exact path="/about" component={About}/>
+          <Route exact path="/topics" component={Topics}/>
+          <Route component={NoMatch}/>
+          </Switch>
 
-    </div>
-  </Router>
-)
-
-export  {Home,About,BasicExample};
+        </div>
+      </Router>
+    );
+  }
+}
