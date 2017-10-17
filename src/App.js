@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import BasicRouters from './router/ReactRouter'
+import Layout from './components/Layout'
 
 class App extends Component {
   render() {
     return (
-        <BasicRouters />
+        <Layout />
     );
   }
 }

@@ -6,7 +6,9 @@ import {
 } from 'react-router-dom'
 import { Switch } from 'react-router'
 import NoMatch from '../components/NoMatch'
-
+import Page1 from '../components/Page1'
+import Page2 from '../components/Page2'
+import Nav from '../components/Nav'
 const Home = () => (
   <div>
     <h2>Home</h2>
@@ -59,19 +61,14 @@ export default class BasicRouters extends Component{
     return(
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-          </ul>
-          <hr/>
+          <Nav />
           <Switch>
-          <Route exact  path="/" component={Home}/>
-          <Route exact path="/home" component={Home}/>
-          <Route exact path="/about" component={About}/>
-          <Route exact path="/topics" component={Topics}/>
-          <Route component={NoMatch}/>
+            <Route exact  path="/" component={Home}/>
+            <Route exact path="/home" component={Home}/>
+            <Route exact path="/page1" component={Page1}/>
+            <Route exact path="/page2" component={Page2}/>
+            <Route component={NoMatch}/>
           </Switch>
-
         </div>
       </Router>
     );
